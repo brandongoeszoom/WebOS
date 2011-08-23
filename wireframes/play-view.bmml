@@ -1,0 +1,22 @@
+<!--
+   Copyright 2009-2011 Mediafly, Inc.
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+-->
+
+<mockup version="1.0" skin="sketch" measuredW="738" measuredH="540">
+  <controls>
+    <control controlID="0" controlTypeID="com.balsamiq.mockups::iPhone" x="446" y="20" w="-1" h="-1" measuredW="282" measuredH="510" zOrder="0" locked="false" isInGroup="-1"/>
+    <control controlID="63" controlTypeID="com.balsamiq.mockups::VideoPlayer" x="475" y="118" w="224" h="330" measuredW="300" measuredH="200" zOrder="1" locked="false" isInGroup="-1"/>
+  </controls>
+</mockup>
