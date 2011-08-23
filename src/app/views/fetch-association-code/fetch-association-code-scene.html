@@ -1,0 +1,36 @@
+<!--
+   Copyright 2009-2011 Mediafly, Inc.
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+-->
+<div id="fetchAssociationCodeScene" class="fetchAssociationCodeScene scene">
+	<div class="background"></div>
+	<div id="brandHeader" class="brandHeader">
+		<div class="right">
+			<div id="title" class="title truncating-text"></div>
+			<div id="description" class="description truncating-text"></div>
+		</div>
+	</div>
+	<div class="brandHeaderSpacer"></div>
+	<div class="container">
+		<div id="loading" class="loading">
+			<div x-mojo-element="Spinner" id="spinnerWidget" class="spinner widget"></div>
+			<div id="status" class="status">Fetching code...</div>
+		</div>
+		<div id="success" class="success">
+			<div id="associationCode" class="associationCode"></div>
+			<div class="instruction">This is your association code. Using a web browser visit http://www.mediafly.com/PalmPre and enter the code above. Follow any remaining questions on the site.</div>
+		</div>
+		<div id="result" class="result"></div>
+	</div>
+</div>

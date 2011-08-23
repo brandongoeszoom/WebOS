@@ -1,0 +1,264 @@
+/**
+   Copyright 2009-2011 Mediafly, Inc.
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+**/
+
+[
+    {"source": "\/usr\/palm\/frameworks\/media\/media.js"},
+    {"source": "app\/models\/channel-model.js"},
+    {"source": "app\/models\/content-source-model.js"},
+    {"source": "app\/models\/episode-model.js"},
+    {"source": "app\/models\/show-model.js"},
+    {"source": "app\/models\/setting-model.js"},
+    {"source": "app\/models\/user-model.js"},
+    {"source": "app\/models\/list-selector-model.js"},
+    {"source": "app\/models\/content-source-user-model.js"},
+
+    {"source": "app\/calls\/url.js"},
+	  {"source": "app\/calls\/parse.js"},
+	  {"source": "app\/calls\/get.js"},
+
+    {"source": "app\/calls\/parse\/parse-token-response.js"},
+
+    {"source": "app\/calls\/get\/get-channel.js"},
+    {"source": "app\/calls\/get\/get-channel-video-content.js"},
+    {"source": "app\/calls\/get\/get-channel-audio-content.js"},
+    {"source": "app\/calls\/get\/get-user-channel.js"},
+
+    {"source": "app\/calls\/parse\/parse-channel-response.js"},
+
+    {"source": "app\/calls\/get\/get-channels.js"},
+    {"source": "app\/calls\/get\/get-user-channels.js"},
+    {"source": "app\/calls\/parse\/parse-channels-response.js"},
+
+    {"source": "app\/calls\/get\/get-search-results.js"},
+    {"source": "app\/calls\/parse\/parse-search-response.js"},
+
+    {"source": "app\/calls\/get\/get-show.js"},
+    {"source": "app\/calls\/parse\/parse-show-response.js"},
+
+    {"source": "app\/calls\/get\/get-episodes-for-show.js"},
+    {"source": "app\/calls\/parse\/parse-episodes-in-show-response.js"},
+
+    {"source": "app\/calls\/get\/bind-user.js"},
+    {"source": "app\/calls\/parse\/parse-bind-user-response.js"},
+
+    {"source": "app\/calls\/get\/bind-content-source-user.js"},
+    {"source": "app\/calls\/parse\/parse-bind-content-source-user-response.js"},
+
+    {"source": "app\/calls\/get\/get-user-association-code.js"},
+    {"source": "app\/calls\/parse\/parse-association-code-response.js"},
+
+    {"source": "app\/calls\/get\/get-bound-users.js"},
+    {"source": "app\/calls\/parse\/parse-bound-users-response.js"},
+
+    {"source": "app\/calls\/get\/get-bound-content-source-users.js"},
+    {"source": "app\/calls\/parse\/parse-bound-content-source-users-response.js"},
+
+    {"source": "app\/calls\/get\/browse-content-sources.js"},
+    {"source": "app\/calls\/get\/get-content-sources.js"},
+	{"source": "app\/calls\/parse\/parse-content-sources-response.js"},
+
+    {"source": "app\/calls\/get\/unbind-user.js"},
+    {"source": "app\/calls\/parse\/parse-unbind-user-response.js"},
+
+    {"source": "app\/calls\/get\/unbind-content-source-user.js"},
+    {"source": "app\/calls\/parse\/parse-unbind-content-source-user-response.js"},
+
+    {"source": "app\/calls\/get\/bind-user-as-default.js"},
+    {"source": "app\/calls\/parse\/parse-bind-user-as-default-response.js"},
+
+    {"source": "app\/calls\/get\/poll-association-code.js"},
+    {"source": "app\/calls\/parse\/parse-poll-association-code-response.js"},
+
+    {"source": "app\/calls\/get\/add-favorite-show.js"},
+    {"source": "app\/calls\/parse\/parse-add-favorite-show-response.js"},
+
+    {"source": "app\/calls\/get\/add-favorite-episode.js"},
+    {"source": "app\/calls\/parse\/parse-add-favorite-episode-response.js"},
+
+    {"source": "app\/calls\/get\/add-episode-rating.js"},
+    {"source": "app\/calls\/parse\/parse-add-episode-rating-response.js"},
+
+    {"source": "app\/calls\/get\/add-show-rating.js"},
+    {"source": "app\/calls\/parse\/parse-add-show-rating-response.js"},
+
+    {"source": "app\/calls\/get\/remove-episode.js"},
+    {"source": "app\/calls\/parse\/parse-remove-episode-response.js"},
+
+    {"source": "app\/calls\/get\/add-content-source.js"},
+    {"source": "app\/calls\/parse\/parse-add-content-source-response.js"},
+
+    {"source": "app\/calls\/get\/remove-content-source.js"},
+    {"source": "app\/calls\/parse\/parse-remove-content-source-response.js"},
+
+    {"source": "app\/calls\/get\/post-experience-for-episode.js"},
+    {"source": "app\/calls\/parse\/parse-post-experience-for-episode-response.js"},
+
+    {"source": "app\/assistants\/widgets\/widget-namespaces.js"},
+    {"source": "app\/assistants\/widgets\/base-widget.js"},
+    {"source": "app\/assistants\/widgets\/base-list-widget.js"},
+    {"source": "app\/assistants\/widgets\/base-dialog-widget.js"},
+    {"source": "app\/assistants\/widgets\/spinner-widget.js"},
+    {"source": "app\/assistants\/widgets\/menu-widget.js"},
+    {"source": "app\/assistants\/widgets\/confirm-widget.js"},
+    {"source": "app\/assistants\/widgets\/message-widget.js"},
+    {"source": "app\/assistants\/widgets\/waiting-widget.js"},
+    {"source": "app\/assistants\/widgets\/header-widget.js"},
+    {"source": "app\/assistants\/widgets\/progress-widget.js"},
+    {"source": "app\/assistants\/widgets\/playback-control-widget.js"},
+    {"source": "app\/assistants\/widgets\/video-playback-control-widget.js"},
+    {"source": "app\/assistants\/widgets\/dashboard-widget.js"},
+
+    {"source": "app\/assistants\/stage-assistant.js"},
+    {
+        "scenes": "content-sources",
+        "source": "app\/assistants\/content-sources\/content-sources-assistant.js"
+    },
+    {"source": "app\/assistants\/content-sources\/list-widget.js"},
+    {"source": "app\/assistants\/content-sources\/list-selector-widget.js"},
+    {"source": "app\/assistants\/content-sources\/command-menu-widget.js"},
+    {
+        "scenes": "channels",
+        "source": "app\/assistants\/channels\/channels-assistant.js"
+    },
+    {"source": "app\/assistants\/channels\/list-widget.js"},
+    {
+        "scenes": "channel",
+        "source": "app\/assistants\/channel\/channel-assistant.js"
+    },
+    {"source": "app\/assistants\/channel\/list-widget.js"},
+    {"source": "app\/assistants\/channel\/radio-widget.js"},
+    {"source": "app\/assistants\/channel\/show-button-widget.js"},
+    {
+        "scenes": "dashboard",
+        "source": "app\/assistants\/episode\/dashboard-assistant.js"
+    },
+    {
+        "scenes": "episode",
+        "source": "app\/assistants\/episode\/episode-assistant.js"
+    },
+    {"source": "app\/assistants\/episode\/play-button-widget.js"},
+    {"source": "app\/assistants\/episode\/info-button-widget.js"},
+    {"source": "app\/assistants\/episode\/rating-button-widget.js"},
+    {"source": "app\/assistants\/episode\/show-button-widget.js"},
+    {"source": "app\/assistants\/episode\/remove-button-widget.js"},
+    {"source": "app\/assistants\/episode\/remove-episode-dialog-widget.js"},
+    {"source": "app\/assistants\/episode\/media-widget.js"},
+    {"source": "app\/assistants\/episode\/playback\/player.js"},
+    {"source": "app\/assistants\/episode\/playback\/video-player.js"},
+    {"source": "app\/assistants\/episode\/playback\/audio-player.js"},
+    {
+        "scenes": "episode-info",
+        "source": "app\/assistants\/episode-info\/episode-info-assistant.js"
+    },
+    {
+        "scenes": "rate-episode",
+        "source": "app\/assistants\/rate-episode\/rate-episode-assistant.js"
+    },
+    {"source": "app\/assistants\/rate-episode\/favorite-button-widget.js"},
+	  {"source": "app\/assistants\/rate-episode\/rating-slider-widget.js"},
+    {
+        "scenes": "search",
+        "source": "app\/assistants\/search\/search-assistant.js"
+    },
+    {"source": "app\/assistants\/search\/list-widget.js"},
+    {"source": "app\/assistants\/search\/textfield-widget.js"},
+    {"source": "app\/assistants\/search\/search-field-button-widget.js"},
+    {
+        "scenes": "show",
+        "source": "app\/assistants\/show\/show-assistant.js"
+    },
+    {"source": "app\/assistants\/show\/list-widget.js"},
+    {"source": "app\/assistants\/show\/options-button-widget.js"},
+    {"source": "app\/assistants\/show\/play-button-widget.js"},
+    {
+        "scenes": "show-options",
+        "source": "app\/assistants\/show-options\/show-options-assistant.js"
+    },
+    {"source": "app\/assistants\/show-options\/rate-button-widget.js"},
+    {"source": "app\/assistants\/show-options\/info-button-widget.js"},
+    {
+        "scenes": "show-info",
+        "source": "app\/assistants\/show-info\/show-info-assistant.js"
+    },
+    {
+        "scenes": "rate-show",
+        "source": "app\/assistants\/rate-show\/rate-show-assistant.js"
+    },
+    {"source": "app\/assistants\/rate-show\/favorite-button-widget.js"},
+    {"source": "app\/assistants\/rate-show\/rating-slider-widget.js"},
+	{
+        "scenes": "settings-menu",
+        "source": "app\/assistants\/settings\/settings-menu\/settings-menu-assistant.js"
+    },
+    {"source": "app\/assistants\/settings\/settings-menu\/list-widget.js"},
+    {
+        "scenes": "linked-accounts",
+        "source": "app\/assistants\/settings\/linked-accounts\/linked-accounts-assistant.js"
+    },
+    {"source": "app\/assistants\/settings\/linked-accounts\/list-widget.js"},
+    {"source": "app\/assistants\/settings\/linked-accounts\/button-widget.js"},
+    {
+        "scenes": "linking-methods",
+        "source": "app\/assistants\/settings\/linking-methods\/linking-methods-assistant.js"
+    },
+    {"source": "app\/assistants\/settings\/linking-methods\/login-button-widget.js"},
+    {"source": "app\/assistants\/settings\/linking-methods\/association-button-widget.js"},
+    {"source": "app\/assistants\/settings\/linking-methods\/more-info-button-widget.js"},
+    {
+        "scenes": "fetch-association-code",
+        "source": "app\/assistants\/settings\/fetch-association-code\/fetch-association-code-assistant.js"
+    },
+    {
+        "scenes": "login",
+        "source": "app\/assistants\/settings\/login\/login-assistant.js"
+    },
+    {
+        "scenes": "add-content",
+        "source": "app\/assistants\/settings\/add-content\/add-content-assistant.js"
+    },
+    {"source": "app\/assistants\/settings\/add-content\/list-widget.js"},
+    {
+        "scenes": "more-info",
+        "source": "app\/assistants\/settings\/more-info\/more-info-assistant.js"
+    },
+    {"source": "app\/assistants\/settings\/login\/username-textfield-widget.js"},
+    {"source": "app\/assistants\/settings\/login\/password-textfield-widget.js"},
+    {"source": "app\/assistants\/settings\/login\/login-button-widget.js"},
+    {
+        "scenes": "about",
+        "source": "app\/assistants\/about\/about-assistant.js"
+    },
+    {"source": "app\/assistants\/about\/webview-widget.js"},
+	  {
+	 	  "scenes": "help",
+	    "source": "app\/assistants\/help\/help-assistant.js"
+	  },
+	  {"source": "app\/assistants\/help\/webview-widget.js"},
+	  {
+	    "scenes": "boot-screen",
+	    "source": "app\/assistants\/boot-screen\/boot-screen-assistant.js"
+	  },
+	  {
+	    "scenes": "welcome1",
+	    "source": "app\/assistants\/welcome1\/welcome1-assistant.js"
+	  },
+    {
+	    "scenes": "welcome2",
+	    "source": "app\/assistants\/welcome2\/welcome2-assistant.js"
+	  },
+    { "source": "app\/utilities\/database.js"},
+    { "source": "app\/utilities\/notification.js"}
+]

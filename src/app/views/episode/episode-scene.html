@@ -1,0 +1,53 @@
+<!--
+   Copyright 2009-2011 Mediafly, Inc.
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+-->
+<div class="scene episodeScene">
+	<div class="palm-page-header multi-line">
+		<div class="palm-page-header-wrapper">
+			<div class="icon">
+				<img id="episodeImage" class="episodeImage" src="" />
+			</div>
+			<div id="episodeTitle" class="title"></div>
+			<div id="episodePublished" class="subtitle"></div>
+			<div class="clear"></div>
+		</div>
+	</div>
+
+	<div class="background"></div>
+	<!--
+	<div x-mojo-element="Button" id="playButtonWidget" class="widget"></div>
+	<div x-mojo-element="Button" id="infoButtonWidget" class="widget"></div>
+	<div x-mojo-element="Button" id="ratingButtonWidget" class="widget"></div>
+	<div x-mojo-element="Button" id="showButtonWidget" class="widget"></div>
+	<div x-mojo-element="Button" id="removeButtonWidget" class="widget"></div>
+	-->
+	<div id="slider-div" class="stream-info">
+		<div id="playback-progress" class="elapsed">00:00</div>
+		<div id="progress" x-mojo-element="ProgressSlider" class="stream-buffer-bar"></div>
+		<div id="playback-remaining" class="duration">00:00</div>
+		<div id="statusDiv" class="status"></div>
+		<hr/>
+	</div>
+	<video id="videoDiv" style="z-index:100; position:fixed; top:0px; left:0px; width:480px; height:320px; visibility:none">
+	</video>
+
+<!--	<div id="infoScroller" x-mojo-element="Scroller" class="infoScroller"> -->
+		<div class="palm-text-wrapper infoWrapper">
+			<div id="episodeInfo" class="info"></div>
+		</div>
+<!--	</div> -->
+
+
+</div>

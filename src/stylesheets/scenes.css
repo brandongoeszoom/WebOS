@@ -1,0 +1,459 @@
+/**
+   Copyright 2009-2011 Mediafly, Inc.
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+**/
+/* Content sources scene
+====================================== */
+.contentSourceRow .title {
+}
+
+.contentSourceRow .description {
+	margin-top: -16px;
+	font-size:14px;
+	padding-left:15px;
+}
+
+.contentSourceRow .outerContainer {
+	position:relative;
+	height:75px;
+}
+
+.contentSourceRow .innerContainer {
+	width:100%;
+	position:absolute;
+	top:50%;
+	height:50px;
+	margin-top:-35px;
+}
+
+.contentSourceRow .popular_channels.innerContainer,
+.contentSourceRow .my_channels.innerContainer,
+.contentSourceRow ._my_channels.innerContainer,
+.contentSourceRow .search.innerContainer {
+	margin-top:-27px;
+}
+
+.addContentScene .contentSourceRow,
+.contentSourcesScene .contentSourceRow {
+	background-repeat:no-repeat;
+	background-position:13px 15px;
+	height:75px;
+	padding-left:60px;
+}
+
+.contentSourcesScene .popular_channels.contentSourceRow {
+	background-image:url(../images/brand/list-icons/popularChannels_Clear_Small.png);
+}
+.contentSourcesScene .my_channels.contentSourceRow {
+	background-image:url(../images/brand/list-icons/userChannels_Clear_Small.png);
+}
+.contentSourcesScene .search.contentSourceRow {
+	background-image:url(../images/brand/list-icons/search_Clear_Small.png);
+}
+
+.contentSourcesScene ._my_channels.contentSourceRow {
+	color:gray;
+}
+
+.contentSourcesScene .updateSpinner {
+	margin-left:20px;
+	margin-top:20px;
+	display: inline-block;
+}
+
+.contentSourceImageDiv {
+	margin-left: -46px;
+	padding-top: 12px;
+	float:left;
+}
+
+.contentSourceCheck {
+	padding-top: 45px;
+}
+
+.popular_channels.contentSourceImageDiv,
+.my_channels.contentSourceImageDiv,
+._my_channels.contentSourceImageDiv,
+.search.contentSourceImageDiv {
+	visibility: hidden;
+}
+
+.contentSourceImage {
+	width:48px;
+	height:48px;
+}
+
+.buildNumber {
+	bottom:15px;
+	color:gray;
+	font-size:14px;
+	position:fixed;
+	right:20px;
+	z-index: 2;
+}
+.contentSourcesScene .listSelectorLabel {
+	display:block;
+	float:left;
+	padding:12px 0px 0px 10px;
+	width:23px;
+}
+.contentSourcesScene .boundUsersRow {
+	position:relative;
+}
+
+.contentSourcesScene .checkingAccountsText {
+  display: inline;
+}
+
+.contentSourcesScene .boundUsersListSelectorWidget {
+	position:absolute;
+	top:0px;
+	left:20px;
+	width:281px;
+}
+
+/*
+.contentSourcesScene .spinner {
+  height:32px;
+	margin-top:0px;
+	position:relative;
+	width:32px;
+	z-index:10000;
+	display: inline-block;
+	vertical-align: middle;
+  margin-left:50px;
+}
+*/
+
+/* Channels scene
+====================================== */
+.channelsScene .noChannels {
+	margin-top: 100px;
+	text-align:center;
+}
+
+/* Channel scene
+====================================== */
+.channelScene .mediaRadioButton {
+	background:#CCC;
+	border-top:1px solid #000;
+	bottom:0px;
+	position:fixed;
+	z-index:100;
+}
+
+.channelScene .noChannelEpisode {
+	margin-top: 100px;
+	text-align:center;
+}
+
+.channelScene .channelList{
+  margin-bottom: 75px;
+}
+
+/* Episode scene
+====================================== */
+.episodeScene p {
+	margin:0;
+	padding:0;
+}
+.episodeScene .left,
+.episodeScene .right {
+	padding:10px 0;
+}
+.episodeScene .left {
+	float:left;
+	height:100px;
+	width:100px;
+	padding-right:10px;
+}
+.episodeScene .right {
+	float:right;
+	width:190px;
+}
+
+.episodeScene .stream-info .elapsed,
+.episodeScene .stream-info .duration {
+	font-size: 14px;
+	vertical-align: middle;
+	color: black;
+	display: table-cell;
+	width: 20%;
+	text-align: left;
+}
+
+.episodeScene .stream-info .duration {
+	text-align: center;
+}
+
+.progress-widget-width {
+	width: 200px;
+}
+
+.infoScroller {
+    height: 250px;
+    width: 300px;
+}
+
+
+/* Episode info scene
+====================================== */
+.episodeInfoScene p {
+	margin:0;
+	padding:0;
+}
+.episodeInfoScene .episodeInfoTitle {
+	font-size:18px;
+	padding-bottom:5px;
+}
+
+/* Rate episode scene
+====================================== */
+.rateEpisodeScene p {
+	margin:0;
+	padding:0;
+}
+.rateEpisodeScene .episodeInfoTitle {
+	font-size:18px;
+	padding-bottom:5px;
+}
+
+/* Play episode scene
+====================================== */
+.playEpisodeScene .mediaPlayerWidget {
+	height:425px;
+	left:0px;
+	top:0px;
+	width:320px;
+	position:fixed;
+	z-index:1000;
+}
+.playEpisodeScene .spinner {
+	height:135px;
+	left:100px;
+	margin-top:0px;
+	position:absolute;
+	width:135px;
+	z-index:10000;
+}
+
+/* Show scene
+====================================== */
+.showEpisode .optionsButtonWidget,
+.showEpisode .playButtonWidget {
+	width:30%;
+}
+/* Login scene
+====================================== */
+.loginScene .loginForm {
+	position:relative;
+	top:65px;
+}
+.loginScene .loginButtonWidget {
+	margin-top:20px;
+}
+.loginScene .result {
+	margin-top:90px;
+	text-align:center;
+}
+.loginScene .result.fail {
+	color:red;
+}
+.loginScene .result.success {
+	color:green;
+}
+.loginScene .spinner {
+	left:100px;
+	top:100px;
+	position:relative;
+}
+
+/* Fetch association code scene
+====================================== */
+.fetchAssociationCodeScene .container {
+	position:relative;
+	text-align:center;
+	top:100px;
+}
+.fetchAssociationCodeScene .spinner {
+	left:90px;
+	margin-bottom:20px;
+}
+.fetchAssociationCodeScene .associationCode {
+	font-size:30px;
+	font-weight:bold;
+	margin-bottom:15px;
+}
+.fetchAssociationCodeScene .instructions {
+	font-size:15px;
+}
+.fetchAssociationCodeScene .result {
+	padding-top:20px;
+	color:green;
+}
+
+/* Linked accounts scene
+====================================== */
+.linkedAccountsScene .noLinkedAccountsMessage {
+	margin-top:100px;
+	text-align:center;
+}
+
+.linkedAccountCheck {
+	padding-top: 25px;
+}
+
+/* About scene
+====================================== */
+.aboutScene .section h2 {
+	padding:0 10px;
+}
+
+/* SettingsMenu scene
+====================================== */
+.settingsMenuScene .preview {
+	color:#666;
+	font-size:15px;
+	padding:0 0 0 2px;
+}
+/* Search scene styles
+====================================== */
+
+.searchScene .noSearchResults {
+	text-align: center;
+	margin-top:100px;
+}
+
+.searchScene .label {
+  background: url(../images/search.png) no-repeat;
+  height: 50px;
+  width: 50px;
+  margin-top:20px;
+}
+
+/* More-Info Scene
+====================================== */
+.moreInfoScene {
+  background: url(../images/brand/first-time/LinkingInfo.png) no-repeat;
+  position:fixed;
+	width:400px;
+	height:460px;
+	z-index:1;
+}
+
+/* Load-screen
+====================================== */
+.load-screen {
+  background: black url(../images/brand/boot.png) no-repeat;
+  position:fixed;
+	width:400px;
+	height:460px;
+	z-index:1;
+
+}
+/* Welcome1-screen
+====================================== */
+.welcome1-screen {
+  background: black url(../images/brand/first-time/welcome-1.png) no-repeat;
+  position:fixed;
+	width:400px;
+	height:460px;
+	z-index:1;
+}
+/* Welcome2-screen
+====================================== */
+.welcome2-screen {
+  background: black url(../images/brand/first-time/welcome-2.png) no-repeat;
+  position:fixed;
+	width:400px;
+	height:460px;
+	z-index:1;
+}
+/* Episodes Show Options
+====================================== */
+.showOptionsScene .headerHeight {
+  min-height:80px;
+}
+
+/* Dashboard Player
+====================================== */
+.dashboard-notification-module.music-player .dashboard-title,
+.dashboard-notification-module.music-player .palm-dashboard-text {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 175px;
+}
+
+.dashboard-notification-module .palm-dashboard-controls-container {
+        position: absolute;
+        right: 5px;
+        z-index: 2;
+}
+
+.dashboard-notification-module .palm-dashboard-controls-container div {
+        width: 48px;
+        height: 48px;
+        float: left;
+}
+
+.dashboard-notification-module .palm-dashboard-controls-container .previous {
+        background: url(../images/dashboard/previous-button.png) top left no-repeat;
+}
+
+.dashboard-notification-module .palm-dashboard-controls-container .previous:active {
+        background: url(../images/dashboard/previous-button.png) bottom left no-repeat;
+}
+
+.dashboard-notification-module .palm-dashboard-controls-container .pause {
+        background: url(../images/dashboard/pause-button.png) top left no-repeat;
+}
+
+.dashboard-notification-module .palm-dashboard-controls-container .pause:active {
+        background: url(../images/dashboard/pause-button.png) bottom left no-repeat;
+}
+
+.dashboard-notification-module .palm-dashboard-controls-container .play {
+        background: url(../images/dashboard/play-button.png) top left no-repeat;
+}
+
+.dashboard-notification-module .palm-dashboard-controls-container .play:active {
+        background: url(../images/dashboard/play-button.png) bottom left no-repeat;
+}
+
+.dashboard-notification-module .palm-dashboard-controls-container .next {
+        background: url(../images/dashboard/next-button.png) top left no-repeat;
+}
+
+.dashboard-notification-module .palm-dashboard-controls-container .next:active {
+        background: url(../images/dashboard/next-button.png) bottom left no-repeat;
+}
+
+.dashboard-notification-module .album-art-container .album-art {
+        position: absolute;
+        right: 0px;
+        margin: -46px -8px 0px 0px;
+        -webkit-transform: rotate(-3deg);
+        width: 185px;
+        height: 50px;
+}
+
+.dashboard-notification-module .album-art-container .album-art-overlay {
+        position: absolute;
+        right: 0px;
+        margin-top: -51px;
+        width: 185px;
+        height: 51px;
+        background: url(../images/dashboard/album-art-overlay.png) center center no-repeat;
+}

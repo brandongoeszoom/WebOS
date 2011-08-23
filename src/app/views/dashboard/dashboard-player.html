@@ -1,0 +1,33 @@
+<!--
+   Copyright 2009-2011 Mediafly, Inc.
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+-->
+<div class="dashboard-notification-module music-player">
+  <div class="palm-dashboard-controls-container">
+    <div id="prev" class="control-button previous"></div>
+    <div id="play" style="display: #{showPlay}" class="control-button play"></div>
+    <div id="pause" style="display: #{showPause}" class="control-button pause"></div>
+    <div id="next" class="control-button next"></div>
+  </div>
+  <div class="palm-dashboard-text-container">
+    <div id="episode-title" class="dashboard-title">
+      #{episodeTitle}
+    </div>
+    <div id="playbackStatus" class="palm-dashboard-text">#{playbackStatus}</div>
+  </div>
+  <!--div class="album-art-container">
+    <div style='background: url("#{albumArtUrl}") top left no-repeat' class="album-art"></div>
+    <div class="album-art-overlay"></div>
+  </div-->
+</div>

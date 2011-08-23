@@ -1,0 +1,238 @@
+/**
+   Copyright 2009-2011 Mediafly, Inc.
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+**/
+/* Header image
+====================================== */
+.brandHeader {
+	border-bottom:1px solid #000;
+	top:0px;
+	width:100%;
+	position:fixed;
+	z-index:100;
+	min-height:50px;
+	background:url(../images/brand/topbanner-portrait.png) no-repeat;
+}
+
+.brandHeaderSpacer {
+	height: 50px;
+	clear:both;
+}
+
+.brandHeader .title,
+.brandHeader .description {
+	width:170px;
+	padding-right:10px;
+	font-size:14px;
+	color:white; /* change to white if drop shadow is ever supported */
+	text-align:right;
+	padding-top:3px;
+	/* text-shadow:1px 1px 1px #000; */ /* not supported yet, but a drop shadow would be great */
+}
+
+.brandHeader .description {
+	font-size:12px;
+}
+
+/* Media description
+====================================== */
+.mediaInfo {
+	margin:20px 10px;
+}
+.mediaInfo .infoTitle,
+.mediaInfo .info {
+	margin:0;
+	padding:0;
+}
+.mediaInfo .infoTitle {
+	margin-bottom:10px;
+}
+.mediaInfo .info {
+}
+
+/* Mark as Favorite
+====================================== */
+.markAsFavorite {
+	height:100px;
+}
+.markAsFavorite .favoriteResult {
+	text-align:center;
+}
+
+/* Rating Slider
+====================================== */
+.ratingSlider {
+
+}
+.ratingSlider .ratingSliderWidget {
+	margin-bottom:20px;
+	margin-left:10px;
+	margin-top:50px;
+}
+.ratingSlider .ratingScale {
+	margin:0 0 0 28px;
+	padding:0px;
+}
+.ratingSlider .ratingScale li {
+	display:inline;
+	list-style-type:none;
+	margin:0 24px;
+}
+.ratingSlider .ratingScale li:first-child {
+	margin-left:0;
+}
+.ratingSlider .ratingScale li:last-child {
+	margin-right:0;
+}
+.ratingSlider .ratingResult {
+	margin-top:20px;
+	text-align:center;
+}
+
+/* Header
+====================================== */
+.palm-page-header {
+
+}
+.palm-page-header .icon {
+	float:left;
+}
+.palm-page-header .title,
+.palm-page-header.multi-line .subtitle {
+	padding-left:80px;
+}
+.palm-page-header .title {
+}
+.palm-page-header .subtitle {
+	margin-top:5px;
+	position:relative;
+}
+.palm-row-wrapper .icon,
+.palm-page-header .icon {
+	background:url(../images/rows/image-holder.png) no-repeat;
+	height:66px;
+	margin:8px;
+	width:66px;
+}
+.palm-row-wrapper .icon img,
+.palm-page-header .icon img {
+	background-color:#CCC;
+	height:58px;
+	width:57px;
+	margin-top:5px;
+	margin-left:5px;
+}
+
+/* Channel Rows
+====================================== */
+.channelRow .left,
+.channelRow .middle,
+.channelRow .right {
+	float:left;
+	padding:10px 0;
+}
+.channelRow .left {
+	float:left;
+	padding-left:10px;
+	width:66px;
+}
+.channelRow .right {
+	float:left;
+	padding-left:20px;
+	width:214px;
+}
+.channelRow .channelTitle {
+	clear:both;
+	font-size:16px;
+	font-weight:bold;
+	padding-top:25px;
+	padding-bottom:25px;
+}
+.channelRow .channelImage {
+	float:left;
+}
+.channelRow .channelMediaType {
+	float:left;
+	font-size:12px;
+	padding:0 0 0 15px;
+	margin:0;
+	text-align:right;
+	width:50px;
+}
+
+.channelImage {
+	width:48px;
+	height:48px;
+}
+
+
+/* Episode Rows
+====================================== */
+.episodeRow .left,
+.episodeRow .middle,
+.episodeRow .right {
+	float:left;
+	padding:10px 0;
+}
+.episodeRow .left {
+	float:left;
+	padding-left:10px;
+	width:66px;
+}
+.episodeRow .right {
+	float:left;
+	padding-left:20px;
+	width:214px;
+}
+.episodeRow .episodeTitle {
+	clear:both;
+	font-size:16px;
+	font-weight:bold;
+}
+.episodeRow .episodePublished {
+	float:left;
+	font-size:12px;
+	padding:0;
+	margin:0;
+}
+.episodeRow .episodeDetails {
+	padding-bottom:5px;
+}
+.episodeRow .episodeImage {
+	float:left;
+}
+.episodeRow .episodeMediaType {
+	float:left;
+	font-size:12px;
+	padding:0 0 0 15px;
+	margin:0;
+	text-align:right;
+	width:50px;
+}
+.showScene .episodeRow {
+	padding:10px;
+}
+
+/* Show Rows
+====================================== */
+.showRow .episodeTitle {
+	font-size:16px;
+	font-weight:bold;
+	padding:0 10px 10px 10px;
+}
+.showRow .episodePublished {
+	font-size:12px;
+	padding:10px 10px 5px 10px;
+	margin:0;
+}
