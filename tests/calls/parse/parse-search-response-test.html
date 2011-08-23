@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!--
+   Copyright 2009-2011 Mediafly, Inc.
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+-->
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+		<title>ParseSearchResponse Test</title>
+		<link rel="stylesheet" type="text/css" href="../../frameworks/JSSpec/JSSpec.css" />
+		<script type="text/javascript" src="../../frameworks/JSSpec/diff_match_patch.js"></script>
+		<script type="text/javascript" src="../../frameworks/JSSpec/JSSpec.js"></script>
+		<script type="text/javascript" src="../../frameworks/prototype.js"></script>
+		
+		<!-- Calls -->
+		<script type="text/javascript" src="../../../src/app/calls/parse.js"></script>
+		<script type="text/javascript" src="../../../src/app/calls/parse/parse-search-response.js"></script>
+		
+		<!-- Models -->
+		<script type="text/javascript" src="../../../src/app/models/episode-model.js"></script>
+
+		<!-- Mocks -->
+		<script type="text/javascript" src="../../calls/test-data.js"></script>
+		<script type="text/javascript">
+			describe('Parsing search response', {
+				'should return array of episodes': function() {
+					var expected = [ 
+						new EpisodeModel({
+							description: "Oklahoma\u0027s first lady goes crappie fishing.<br \/><br \/><br \/>",
+							slug: "First_Lady_Fishing_for_Crappie",
+							title: "First Lady Fishing for Crappie",
+							url: "http:\/\/www.mediafly.com\/Podcasts\/Episodes\/First_Lady_Fishing_for_Crappie\/Media\/kimhenrycrappie1.mp4",
+							imageUrl:"http:\/\/static.mediafly.com\/images\/feeds\/54e07f7ba86a4d85be5bccede487e7ee\/icon-300x300.jpg",
+							mediaType:"Video",
+							published:new Date("July 26, 2009 12:00:00"),
+							showSlug:"Outdoor_Oklahoma"
+						}), 
+						new EpisodeModel({
+							slug: "Rogues_Rascals_and_Renegades_Struggle_to_Retain_Control",
+							title: "Rogues, Rascals and Renegades Struggle to Retain Control",
+							url: "http:\/\/www.mediafly.com\/Podcasts\/Episodes\/Rogues_Rascals_and_Renegades_Struggle_to_Retain_Control\/Media\/show.mp3",
+							imageUrl:"http:\/\/static.mediafly.com\/images\/feeds\/fbea4631e8ad4d7bbe9fee1ecddcc84a\/icon-300x300.jpg",
+							mediaType:"Audio",
+							published:new Date("May 31 2009 16:14:10"),
+							showSlug:"Sam_Deidre_Show"			
+						}),  
+					];
+					value_of(new ParseSearchResponse(searchResponse).result).should_be(expected);
+				}
+			});
+		</script>
+	</head>
+	<body></body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!--
+   Copyright 2009-2011 Mediafly, Inc.
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+-->
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+		<title>ParseChannelResponse Test</title>
+		<link rel="stylesheet" type="text/css" href="../../frameworks/JSSpec/JSSpec.css" />
+		<script type="text/javascript" src="../../frameworks/JSSpec/diff_match_patch.js"></script>
+		<script type="text/javascript" src="../../frameworks/JSSpec/JSSpec.js"></script>
+		<script type="text/javascript" src="../../frameworks/prototype.js"></script>
+		
+		<!-- Calls -->
+		<script type="text/javascript" src="../../../src/app/calls/parse.js"></script>
+		<script type="text/javascript" src="../../../src/app/calls/parse/parse-channel-response.js"></script>
+		
+		<!-- Models -->
+		<script type="text/javascript" src="../../../src/app/models/episode-model.js"></script>
+
+		<!-- Mocks -->
+		<script type="text/javascript" src="../../calls/test-data.js"></script>
+		<script type="text/javascript">
+			describe('Parsing Channel Request', {
+				'should return array of episodes': function() {
+					var expected = [ 
+						new EpisodeModel({
+							description: "8-07-09 -- We\u0027re changing out tune on federal spending, Congress will get new jets, and how Twitter and Facebook went down for the count.<br \/><br \/><br \/><br \/>", 
+							slug: "The_Wall_Street_Journal_This_Morning_August_7th", 
+							title: "The Wall Street Journal This Morning August 7th", 
+							url: "http:\/\/www.mediafly.com\/Podcasts\/Episodes\/The_Wall_Street_Journal_This_Morning_August_7th\/Media\/1c83287fef4641219acf0beee861cc81\/pod-wsjtmit.mp3", 
+							imageUrl:"image.png",
+							mediaType:"video",
+							published:new Date("aug 17 2009 14:00:08"),
+							showSlug:"slug_for_show"
+						}), 
+						new EpisodeModel({
+							description: "Many investors have abandoned buy-and-hold strategies in favor of opportunistic trading ... a lot of mature workers are lowering their job-hunting expectations ... coming soon to your fridge: draft beer in a box ... and we check out the weekend\u0027s new movies. Jim Chesko reports.<br \/><br \/><br \/><br \/><br \/><br \/><br \/>", 
+							slug: "WSJs_Your_Money_Matters_Aug_7_2009", 
+							title: "WSJ\u0027s Your Money Matters, Aug. 7, 2009", 
+							url: "http:\/\/www.mediafly.com\/Podcasts\/Episodes\/WSJs_Your_Money_Matters_Aug_7_2009\/Media\/1c83287fef4641219acf0beee861cc81\/pod-wsjymm.mp3", 
+							imageUrl:"image.png",
+							mediaType:"video",
+							published:new Date("aug 17 2009 14:00:08"),
+							showSlug:"slug_for_show"						
+						}),  
+					];
+					value_of(new ParseChannelResponse(channelResponse).result).should_be(expected);
+				}
+			});
+		</script>
+	</head>
+	<body></body>
+</html>ParseChannelResponse

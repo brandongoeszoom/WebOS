@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!--
+   Copyright 2009-2011 Mediafly, Inc.
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+-->
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+		<title>ParseEpisodesInShowResponse Test</title>
+		<link rel="stylesheet" type="text/css" href="../../frameworks/JSSpec/JSSpec.css" />
+		<script type="text/javascript" src="../../frameworks/JSSpec/diff_match_patch.js"></script>
+		<script type="text/javascript" src="../../frameworks/JSSpec/JSSpec.js"></script>
+		<script type="text/javascript" src="../../frameworks/prototype.js"></script>
+		
+		<!-- Calls -->
+		<script type="text/javascript" src="../../../src/app/calls/parse.js"></script>
+		<script type="text/javascript" src="../../../src/app/calls/parse/parse-episodes-in-show-response.js"></script>
+		
+		<!-- Models -->
+		<script type="text/javascript" src="../../../src/app/models/episode-model.js"></script>
+
+		<!-- Mocks -->
+		<script type="text/javascript" src="../../calls/test-data.js"></script>
+		<script type="text/javascript">
+			describe('Parsing episodes in show request', {
+				'should return parsed show': function() { 
+					var expected = [
+						new EpisodeModel({
+							description: "Sylvia Ann Hewlett of the Center for Work-Life Policy on why Gen Y and Boomer employees prefer non-financial incentives.", 
+							slug: "What_Motivates_Gen_Y_and_Boomer_Talent", 
+							title: "What Motivates Gen Y and Boomer Talent", 
+							url: "http:\/\/www.mediafly.com\/Podcasts\/Episodes\/What_Motivates_Gen_Y_and_Boomer_Talent\/Media\/1c83287fef4641219acf0beee861cc81\/Hbvideoideacast-WhatMotivatesGenYAndBoomerTalent271.mp4", 
+							imageUrl: "http:\/\/static.mediafly.com\/images\/feeds\/0fbd19ee69cb4737acd65cb5cfc2bac4\/icon-300x300.jpg",
+							mediaType: "Video",
+							published:new Date("aug 04 2009 00:56:47"),
+							showSlug:"Harvard_Business_Video_IdeaCast"
+						}),
+						new EpisodeModel({
+							description: "Adam Werbach, Global CEO of Saatchi and Saatchi S and former Sierra Club president, is the author of Strategy for Sustainability", 
+							slug: "Build_a_Strategy_for_Sustainability", 
+							title: "Build a Strategy for Sustainability", 
+							url: "http:\/\/www.mediafly.com\/Podcasts\/Episodes\/Build_a_Strategy_for_Sustainability\/Media\/1c83287fef4641219acf0beee861cc81\/Hbvideoideacast-BuildAStrategyForSustainability602.mp4", 
+							imageUrl: "http:\/\/static.mediafly.com\/images\/feeds\/0fbd19ee69cb4737acd65cb5cfc2bac4\/icon-300x300.jpg",
+							mediaType: "Video",
+							published:new Date("july 21 2009 21:37:32"),
+							showSlug:"Harvard_Business_Video_IdeaCast"
+						})
+					];
+					value_of(new ParseEpisodesInShowResponse(episodesForShowResponse).result).should_be(expected);
+				}
+			});
+		</script>
+	</head>
+	<body></body>
+</html>

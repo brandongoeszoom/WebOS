@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!--
+   Copyright 2009-2011 Mediafly, Inc.
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+-->
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+		<title>ParseChannelsResponse Test</title>
+		<link rel="stylesheet" type="text/css" href="../../frameworks/JSSpec/JSSpec.css" />
+		<script type="text/javascript" src="../../frameworks/JSSpec/diff_match_patch.js"></script>
+		<script type="text/javascript" src="../../frameworks/JSSpec/JSSpec.js"></script>
+		<script type="text/javascript" src="../../frameworks/prototype.js"></script>
+		
+		<!-- Calls -->
+		<script type="text/javascript" src="../../../src/app/calls/parse.js"></script>
+		<script type="text/javascript" src="../../../src/app/calls/parse/parse-channels-response.js"></script>
+		
+		<!-- Models -->
+		<script type="text/javascript" src="../../../src/app/models/channel-model.js"></script>
+
+		<!-- Mocks -->
+		<script type="text/javascript" src="../../calls/test-data.js"></script>
+		<script type="text/javascript">
+			describe('Parsing Channels Response', {
+				'should return array of channels': function() {
+					var expected = [ 
+						new ChannelModel({ "name": "All (Mix)", "slug": "__all__" }), 
+						new ChannelModel({ "name": "Business And Finance", "slug": "3f4c67bed8a64b04a3c3388479161400" }), 
+						new ChannelModel({ "name": "Cars", "slug": "c41dd4d0455b4507972fcf5e1e457f51" }), 
+						new ChannelModel({ "name": "Comedy", "slug": "7e51c1ef4f5f463bb48c6c144a3ccc9b" }), 
+						new ChannelModel({ "name": "Cooking And Drinks", "slug": "67ebe3e620f74f43aa50c9e0e933a219" }), 
+						new ChannelModel({ "name": "Education", "slug": "5fa2a730124646859d08645a6d247640" }), 
+						new ChannelModel({ "name": "Entertainment News", "slug": "077fdfea8bc348559b8b7711f64af2e4" }), 
+						new ChannelModel({ "name": "Fashion And Luxury", "slug": "506b3da61efe4c3baf0bebeda34319c2" }), 
+						new ChannelModel({ "name": "Health And Fitness", "slug": "311f9d788a05436ab75ad4c38f15854e" }), 
+						new ChannelModel({ "name": "History", "slug": "00d1028d6b424bac9250a8a42334926f" }), 
+						new ChannelModel({ "name": "Kids, Family And Parenting", "slug": "25a83c89ee6c45ca9fb2da835b98f189" }), 
+						new ChannelModel({ "name": "Learn A Language", "slug": "d7c2002a8a49464d92b5958f2e73b618" }), 
+						new ChannelModel({ "name": "Music", "slug": "78474c97d3f54d988118635382a0440e" }), 
+						new ChannelModel({ "name": "News And Politics", "slug": "f6520aa4ffab42629247965ec56f543b" }), 
+						new ChannelModel({ "name": "Relationships", "slug": "1abe18bbe79247a78ae75d158a744118" }), 
+						new ChannelModel({ "name": "Science And Nature", "slug": "19d0c070ecb8443b906e75657f929ce8" }), 
+						new ChannelModel({ "name": "Sports", "slug": "16a40d96cbac4b028a76f8ef37722f5d" }), 
+						new ChannelModel({ "name": "Technology", "slug": "e5261d82d1dd436ca4efc871b9781121" }), 
+						new ChannelModel({ "name": "Travel", "slug": "acc9635066454211984656ee1e368728" }), 
+						new ChannelModel({ "name": "Video Games", "slug": "8142f8ce2eb446239d22d7e3d1907ee5" }) 
+					];
+					var parseChannels = new ParseChannelsResponse(channelsResponse);
+					value_of(parseChannels.result).should_be(expected);
+				}
+			});
+		</script>
+	</head>
+	<body></body>
+</html>

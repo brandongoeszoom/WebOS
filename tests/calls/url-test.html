@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!--
+   Copyright 2009-2011 Mediafly, Inc.
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+-->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+		<title>Url Test</title>
+		<link rel="stylesheet" type="text/css" href="../frameworks/JSSpec/JSSpec.css" />
+		<script type="text/javascript" src="../frameworks/JSSpec/diff_match_patch.js"></script>
+		<script type="text/javascript" src="../frameworks/JSSpec/JSSpec.js"></script>
+		<script type="text/javascript" src="../frameworks/prototype.js"></script>
+		<script type="text/javascript" src="../../src/app/calls/url.js"></script>
+		<script type="text/javascript">
+			describe('Url creation', {
+				'before': function() {
+					parameters = {
+						test:true,
+						dog:'bone'
+					};
+				},
+				'should format parameters': function() {
+					url = Url.create("Mediafly.Channels.getChannels", parameters);
+					var expected = "http://api.mediafly.com/api/rest/2.0/Mediafly.Channels.getChannels?app_id=36383e73176d465f90d0e2474bfd6fb9&formatType=json&test=true&dog=bone";
+					
+					value_of(url).should_be(expected);
+				},
+				'should not fail with no parameters': function() {
+					url = Url.create("Mediafly.Channels.getChannels");
+					var expected = "http://api.mediafly.com/api/rest/2.0/Mediafly.Channels.getChannels?app_id=36383e73176d465f90d0e2474bfd6fb9&formatType=json";
+					
+					value_of(url).should_be(expected);					
+				}
+			});
+			describe('updating global url parameters', {
+				'should add global parameters to all urls': function() {
+					Url.addGlobalParameter('token', 'sweetTokenHere');
+					var parameters = {
+						test:true
+					};
+					url = Url.create("Mediafly.Channels.getChannels", parameters);
+					
+					var expected = "http://api.mediafly.com/api/rest/2.0/Mediafly.Channels.getChannels?app_id=36383e73176d465f90d0e2474bfd6fb9&formatType=json&token=sweetTokenHere&test=true";
+					value_of(url).should_be(expected);
+				},
+				'should remove global parameters from all urls': function() {
+					Url.addGlobalParameter('token', 'sweetTokenHere');
+					Url.removeGlobalParameter('token');
+					var parameters = {
+						test:true
+					};
+					url = Url.create("Mediafly.Channels.getChannels", parameters);
+					
+					var expected = "http://api.mediafly.com/api/rest/2.0/Mediafly.Channels.getChannels?app_id=36383e73176d465f90d0e2474bfd6fb9&formatType=json&test=true";
+					value_of(url).should_be(expected);
+				},
+				'should return global parameter': function() {
+					Url.addGlobalParameter('token', 'sweetTokenHere');
+					Url.getGlobalParameter('token');
+
+					value_of(Url.getGlobalParameter('token')).should_be('sweetTokenHere');
+				},
+				'after': function() {
+					Url.removeGlobalParameter("token");
+				}
+			});
+			
+			describe('Creating a secure connection', {
+				'should make a secure url for authentication': function() {
+					var expected = "https://api.mediafly.com/api/rest/2.0/Mediafly.Authentication.BindMFUser?app_id=36383e73176d465f90d0e2474bfd6fb9&formatType=json";
+					var url = Url.create("Mediafly.Authentication.BindMFUser", { secure:true });
+					
+					value_of(url).should_be(expected);
+				}
+			});
+			
+			describe('Binding a user', {
+				'before': function() {
+					Url.setBoundUser("rkolak");
+				},
+				'should bind a accountName to request': function() {
+					var expected = "http://api.mediafly.com/api/rest/2.0/Mediafly.Channels.GetChannels?app_id=36383e73176d465f90d0e2474bfd6fb9&formatType=json&user_context=rkolak";
+					var url = Url.create("Mediafly.Channels.GetChannels", { bindUser:true });
+					
+					value_of(url).should_be(expected);
+				},
+				'should not bind a accountName to request if the option is not passed': function() {
+					var expected = "http://api.mediafly.com/api/rest/2.0/Mediafly.Channels.GetChannels?app_id=36383e73176d465f90d0e2474bfd6fb9&formatType=json";
+					var url = Url.create("Mediafly.Channels.GetChannels");
+					
+					value_of(url).should_be(expected);
+				}
+			});
+		</script>	
+	</head>
+	<body></body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!--
+   Copyright 2009-2011 Mediafly, Inc.
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+-->
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+		<title>Show Model Test</title>
+		<link rel="stylesheet" type="text/css" href="../frameworks/JSSpec/JSSpec.css" />
+		<script type="text/javascript" src="../frameworks/JSSpec/diff_match_patch.js"></script>
+		<script type="text/javascript" src="../frameworks/JSSpec/JSSpec.js"></script>
+		<script type="text/javascript" src="../frameworks/prototype.js"></script>
+		
+		<!-- Model -->
+		<script type="text/javascript" src="../../src/app/models/show-model.js"></script>
+		<script type="text/javascript">
+			describe("Show Model", {
+				'before': function() {
+					show = new ShowModel({
+						slug: 'Harvard_Business_Video_IdeaCast',
+						title: 'Harvard Business Video IdeaCast',
+						description: 'Interviews with management experts who zero in on key business ideas and how to implement them in Interviews with management experts who zero in on key business ideas and how to implement them in organizations.',
+						url: 'http://www.mediafly.com/Podcasts/Feeds/Harvard_Business_Video_IdeaCast',
+						urlOriginal: 'http%3A%2F%2Fhbdvideoideacast.blip.tv',
+						imageUrl: 'http://static.mediafly.com/images/feeds/0fbd19ee69cb4737acd65cb5cfc2bac4/icon-300x300.jpg',
+						averageRating: '',
+						totalRatings: '',
+						userRating: '',
+						favoriteType: 'None'
+					});
+				},
+				'should return truncated description': function() {
+					var expected = 'Interviews with management experts who zero in on key business ideas and how to implement them in Interviews with management experts who zero in on key business ideas and how to implement them in orga...';
+					value_of(show.getShortDescription()).should_be(expected);
+				},
+			});
+		</script>
+	</head>
+	<body></body>
+</html>

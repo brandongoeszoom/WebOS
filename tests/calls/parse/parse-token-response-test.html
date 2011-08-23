@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!--
+   Copyright 2009-2011 Mediafly, Inc.
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+-->
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+		<title>ParseTokenResponse Test</title>
+		<link rel="stylesheet" type="text/css" href="../../frameworks/JSSpec/JSSpec.css" />
+		<script type="text/javascript" src="../../frameworks/JSSpec/diff_match_patch.js"></script>
+		<script type="text/javascript" src="../../frameworks/JSSpec/JSSpec.js"></script>
+		<script type="text/javascript" src="../../frameworks/prototype.js"></script>
+
+		<!-- Calls -->
+		<script type="text/javascript" src="../../../src/app/calls/parse.js"></script>
+		<script type="text/javascript" src="../../../src/app/calls/parse/parse-token-response.js"></script>
+
+		<!-- Mocks -->
+		<script type="text/javascript" src="../../calls/test-data.js"></script>
+		<script type="text/javascript">
+			describe('Parsing Token Request', {
+				'should return token value': function() {
+					var expected = "WGNURzd0T2dtQ1BZUEZKOW0yK01RNlJMRlYvU0JmVDBzUk0yVFJRTkNpUjBvMS9MZkJPeFdOUDkydUN1ZjNDKzUxbFF3bzVDcFZqc1E5U2IrOVZ2Z0VVNndqTjJXdTZoNDZsUWpieEYyNVJwNTdMTm9vZk02VlRIRisxc0xNWkV4TjBXYktxSHp0ZkFmYkZ2Q3ovQTRtNUtvRTk4UjlhMmZ1ZGNsUWJiK1ZWdFpUd0I3cCtSU2JQaWlpSXpsYy9TWFpob2NtNnh5dkxZczRFNjk1S3FWajY0MGFzdm51N2VuWDdzWUV0Sm16cTN2U1lQME5XY2pod0VmUHJrQ1FQWDVuYWJXdEpPZ3kzOFhMVzlQQ3FYcm03bGF5RWRJRjF4a3ZFT1lraUcwYWFqekRjRTJJenVpZTB5UCtCaE5ZV0tmbW4wakhITG5RTUVIL1N5c1QvZ0w4LytiZnhtRkM0RkJVZCtvbUZPb1Y1eTJEMXRNbDU0UWtxQ2NGTnJzWDZKSllnalUyQkVoVUYvU0lMWkZzNEI4OUFadS93Y2hsbWR3enNuTnpmYlpHMlJyNVhJMjIvNDB4QStsellFcFZOc1pPbWRPang1OUV4ZmlqVWtJU1U1ODBmaWZoOXc2dDBlNmw1dlhreWU4dGRjWnR5d3czbkpLQVlTZEtySGkxYXhWVVhsSG1RODdVOU5hS2c4NTd5ZjZsb2V0RGVpSzZZZS9sbG1qT2ZQWnRpWnludTAwKzRJbXdaRGdkMmM1YXkyNEZhMjYzL0F2emtZUnMxbjU2eFRIVUJmZWdQSWoxV2J5MURrYzFFajRoNFBlUUxRV0hqdEl2MnFleVJSSW9RaXZhektRL3BZUUVIM3VDYmZKTC9XOVloZTREemZvOEpsSGZOTXdkMDlJR2hkUlo5NmhOVG5Dc056NFF5Mm1TM3ZYcEt1WHN1UDZFbktZUjEvTWxtL2dwYzdmYzg0R1ROQkNEOXJraTBxOERTb3RjQ1o5NSs4Ti9pVzYzeVlTR3E5WitIMkRNTHYrcnRnODB3TTRCQ2JyS2gwQTZFVUtBTzh4K2tHM3RmUEh6Q0VTZFNhc1dhbnNKUVArbWJ1WEtYUkNsbFpnZ1plR3ZIRWJFNGNCczdxdStTa1NXZTRQdWlIL0VrSG5ZaFRHZmdXQTExb216ZlBjWVhoc2h0a0FSb2NCZlBpL0p6a09KS0hTM2huUzc5R3dKWmZpUk43enFzVjMrcHJQMnJNVTh0Y1F4K3VpaVp5SjhaQTRuQkF1UmJ3";
+					var parsedData = new ParseTokenResponse(tokenResponse).result;
+					
+					value_of(parsedData).should_be(expected);
+				}
+			});
+		</script>
+	</head>
+	<body></body>
+</html>

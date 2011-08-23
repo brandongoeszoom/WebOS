@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!--
+   Copyright 2009-2011 Mediafly, Inc.
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+-->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+		<title>GetRequestFactory Test</title>
+		<link rel="stylesheet" type="text/css" href="../frameworks/JSSpec/JSSpec.css" />
+		<script type="text/javascript" src="../frameworks/JSSpec/diff_match_patch.js"></script>
+		<script type="text/javascript" src="../frameworks/JSSpec/JSSpec.js"></script>
+		<script type="text/javascript" src="../frameworks/prototype.js"></script>
+		
+		<script type="text/javascript">		
+			Urls = {
+				askForToken: "Mediafly.Authentication.GetToken"
+			};
+			
+			GetRequest = Class.create({
+				initialize: function(url) {
+					this.url = url;
+				}
+			});
+			
+			CompositeGetRequest = Class.create(GetRequest, {
+				initialize: function($super, url, nextGetRequest) {
+					this.nextGetRequest = nextGetRequest;
+					$super(url);
+				}
+			})
+			
+			GetRequestFactory = Class.create({
+				initialize: function(holdsTheToken) {
+					this.holdsTheToken = holdsTheToken;
+				},
+				
+				createRequest: function(url) {
+					return this.holdsTheToken.token 
+						? new GetRequest(url) 
+						: new CompositeGetRequest(Urls.askForToken, new GetRequest(url));
+				}
+			});
+			
+			
+			describe('dispatches the request', {
+				'should issue the request if we already have a token': function() {
+					var holdsTheToken = {
+						token: "a real live token"
+					};
+					
+					var url = "original URL";
+					var request = new GetRequestFactory(holdsTheToken).createRequest(url);
+					value_of(request.url).should_be(url);
+				},
+				"should first request a token if we don't already have one": function() {
+					var holdsTheToken = {
+						token: null
+					};
+					
+					var url = "original URL";
+					var request = new GetRequestFactory(holdsTheToken).createRequest(url);
+					value_of(request.url).should_be(Urls.askForToken);
+				}
+			});
+		</script>	
+	</head>
+	<body></body>
+</html>

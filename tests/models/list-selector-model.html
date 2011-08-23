@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!--
+   Copyright 2009-2011 Mediafly, Inc.
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+-->
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+		<title>User Model Test</title>
+		<link rel="stylesheet" type="text/css" href="../frameworks/JSSpec/JSSpec.css" />
+		<script type="text/javascript" src="../frameworks/JSSpec/diff_match_patch.js"></script>
+		<script type="text/javascript" src="../frameworks/JSSpec/JSSpec.js"></script>
+		<script type="text/javascript" src="../frameworks/prototype.js"></script>
+		
+		<!-- Calls -->
+		<script type="text/javascript" src="../../src/app/calls/url.js"></script>
+		
+		<!-- Model -->
+		<script type="text/javascript" src="../../src/app/models/list-selector-model.js"></script>
+		<script type="text/javascript">
+			describe("ListSelectorModel Model", {
+				'before': function() {
+					objects = [{
+						property1:'rkolak',
+						property2:'false'
+					},{
+						property1:'amaleh',
+						property2:'true'
+					}];
+					listSelectorModel = new ListSelectorModel(objects, 'property1', function(object) {
+						return object.property2 == 'true'
+					});
+				},
+				'should create list selector model with correct choices': function() {
+					value_of(listSelectorModel.choices.length).should_be(2);
+					
+					value_of(listSelectorModel.choices[0].label).should_be('rkolak');
+					value_of(listSelectorModel.choices[1].label).should_be('amaleh');
+
+					value_of(listSelectorModel.choices[0].value).should_be('rkolak');
+					value_of(listSelectorModel.choices[1].value).should_be('amaleh');
+				},
+				'should create list selector model with correct [default] value': function() {
+					value_of(listSelectorModel.value).should_be('amaleh');
+					value_of(Url.boundUser).should_be('amaleh');
+				},
+				'should return empty string for default value when there are no choices': function() {
+					listSelectorModel = new ListSelectorModel([], 'property1', function(object) {
+						return object.property2
+					});
+					value_of(listSelectorModel.value).should_be('');
+				}
+			});
+		</script>
+	</head>
+	<body></body>
+</html>

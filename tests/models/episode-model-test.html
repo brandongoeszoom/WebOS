@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!--
+   Copyright 2009-2011 Mediafly, Inc.
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+-->
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+		<title>Episode Model Test</title>
+		<link rel="stylesheet" type="text/css" href="../frameworks/JSSpec/JSSpec.css" />
+		<script type="text/javascript" src="../frameworks/JSSpec/diff_match_patch.js"></script>
+		<script type="text/javascript" src="../frameworks/JSSpec/JSSpec.js"></script>
+		<script type="text/javascript" src="../frameworks/prototype.js"></script>
+		
+		<!-- Model -->
+		<script type="text/javascript" src="../../src/app/models/episode-model.js"></script>
+		<script type="text/javascript">
+			describe("Episode Model", {
+				'before': function() {
+					episode = new EpisodeModel({
+						title:'awesome good times hour', 
+						description: 'this is a super, super, super, super, long, long, long, long, long description',
+						url:'http://www.awesome.net/good_time.html',
+						slug:'awesome_good_times_hour',
+						showSlug:'great_job_show',
+						imageUrl:'cool.jpg',
+						published:new Date('October 05 2009 13:00:09'),
+						mediaType:'video',
+						userRating:'2'
+					});
+				},
+				'should return object of list presentation properties': function() {
+					var expected = { 
+						title:'awesome good times hour', 
+						slug:'awesome_good_times_hour',
+						imageUrl:'cool.jpg',
+						published:'October 5, 2009',
+						mediaType:'video',
+						userRating:'2'
+					};
+					value_of(episode.getListProperties()).should_be(expected);
+				},
+				'should return object of list presentation properties for show scene': function() {
+					var expected = { 
+						title:'awesome good times hour', 
+						slug:'awesome_good_times_hour',
+						published:'October 5, 2009',
+						shortDescription:'this is a super, super, super, super, long, long, long, long, long descript...'
+					};
+					value_of(episode.getShowListProperties()).should_be(expected);
+				},
+				'should return truncated description': function() {
+					var expected = 'this is a super, super, super, super, long, long, long, long, long descript...';
+					value_of(episode.getShortDescription()).should_be(expected);
+				},
+				'should detect media type': function() {
+					value_of(episode.isVideo()).should_be(true);
+					value_of(episode.isAudio()).should_be(false);
+				}
+			});
+		</script>
+	</head>
+	<body></body>
+</html>

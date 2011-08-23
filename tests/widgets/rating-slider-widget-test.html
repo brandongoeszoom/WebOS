@@ -1,0 +1,159 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!--
+   Copyright 2009-2011 Mediafly, Inc.
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+-->
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+		<title>RatingSliderWidget Test</title>
+		<link rel="stylesheet" type="text/css" href="../frameworks/JSSpec/JSSpec.css" />
+		<script type="text/javascript" src="../frameworks/JSSpec/diff_match_patch.js"></script>
+		<script type="text/javascript" src="../frameworks/JSSpec/JSSpec.js"></script>
+		<script type="text/javascript" src="../frameworks/prototype.js"></script>
+		
+		<!-- Calls -->
+		<script type="text/javascript" src="../../src/app/calls/get.js"></script>
+		<script type="text/javascript" src="../../src/app/calls/url.js"></script>
+		<script type="text/javascript" src="../../src/app/calls/get/add-episode-rating.js"></script>
+		<script type="text/javascript" src="../../src/app/calls/parse/parse-add-episode-rating-response.js"></script>
+
+		<!-- Widgets -->
+		<script type="text/javascript" src="../../src/app/assistants/widgets/widget-namespaces.js"></script>
+		<script type="text/javascript" src="../../src/app/assistants/widgets/base-widget.js"></script>
+		<script type="text/javascript" src="../../src/app/assistants/episode-views/rate-episode/rating-slider-widget.js"></script>
+		
+		<!-- Test doubles -->
+		<script type="text/javascript" src="../test-doubles/stub-assistant.js"></script>
+		
+		<script type="text/javascript">		
+			describe('Rating slider widget', {
+				'before': function() {
+					TestableRatingSlider = Class.create(Widget.Episode.RatingSlider, {
+						initialize: function($super, id, assistant, preselectedOptions) {
+							$super(id, assistant, preselectedOptions);
+						},
+						
+						attachListeners: function() {
+							// shut up
+						}
+					});
+					
+					widget = new TestableRatingSlider(null, stubAssistant, { userRating: 5 });
+					attributes = widget.getAttributes();
+				},
+				'should slide from 1 to 5': function() { 
+					value_of(attributes.minValue).should_be(1);
+					value_of(attributes.maxValue).should_be(5);
+				},
+				'should ask to round the selected value, because we can\'t snap the value to the nearest integer': function() { 
+					value_of(attributes.round).should_be(true);
+				},
+				'should ask to update the rating every 3 seconds, because we don\'t want to drown in requests': function() { 
+					value_of(attributes.updateInterval).should_be(3);
+				}
+			});
+			describe('Rating slider widget when preselecting the current user rating', {
+				'before': function() {
+					createRatingSlider = function(userRating) {
+						return new TestableRatingSlider(null, stubAssistant, { userRating: userRating });
+					}
+				},
+				'should pre-select the current rating, if any': function() { 
+					var model = widget.getModel();					
+					value_of(model.value).should_be(5);
+			 	},
+				'should pre-select 3 if no current rating': function() {
+					widget = createRatingSlider('');
+					var model = widget.getModel();					
+					value_of(model.value).should_be(3);
+				}
+			});
+			describe('Rating slider widget property change listener', {
+				'before': function() {
+					anyOldRatingSlider = function() {
+						return new TestableRatingSlider(null, stubAssistant, { userRating: '' });
+					}
+				},
+				
+				'should create AddEpisodeRequest with the correct parameters': function() {
+					invoked = false;
+					
+					TestableRatingSlider.prototype.createActionRequest = function(requestClassName, parameters, responseHandler) {
+						invoked = true;
+						value_of(requestClassName).should_be("AddEpisodeRating");
+						value_of(parameters).should_be({
+							episode: this.assistant.episode,
+							rating: 5
+						});
+					};
+					
+					widget = anyOldRatingSlider();
+					widget.createAddEpisodeRatingListener(5);
+					value_of(invoked).should_be(true);
+				},
+			});
+			
+			describe("Add Episode Rating Response Handler", {
+				'before': function() {
+					assistant = {}
+					widget = {
+						assistant: assistant
+					};
+					ajaxResponseParameters = { a: 1 };
+					responseHandler = new AddEpisodeRatingResponseHandler(widget, ajaxResponseParameters);
+				},
+				"Asks to update the scene's model": function() {
+					value_of(responseHandler.modelToUpdate).should_be(assistant);
+					value_of(responseHandler.modelToUpdate).should_not_be(widget);
+				},
+				
+				"Asks to update the widget's own view": function() {
+					value_of(responseHandler.viewToUpdate).should_be(widget);
+					value_of(responseHandler.viewToUpdate).should_not_be(assistant);
+				}
+				
+			});
+			
+			describe('UpdatesModelAndViewResponseHandler', {
+				'should try to update both the model and the view': function() {
+					var updateModelInvoked = false;
+					var updateViewInvoked = false;
+					var responseHandlerParameters = {a:1};
+					
+					var modelToUpdate = {
+						updateModel: function(parameters) {
+							updateModelInvoked = true;
+							value_of(parameters).should_be(responseHandlerParameters);
+						}	
+					};
+					
+					var viewToUpdate = {
+						updateView: function(parameters) {
+							updateViewInvoked = true;
+							value_of(parameters).should_be(responseHandlerParameters);
+						}
+					};
+					
+					new UpdatesModelAndViewResponseHandler(modelToUpdate, viewToUpdate, responseHandlerParameters).handleResponse();
+				
+					value_of(updateModelInvoked).should_be(true);
+					value_of(updateViewInvoked).should_be(true);
+				},
+			});
+		</script>	
+	</head>
+	<body></body>
+</html>
